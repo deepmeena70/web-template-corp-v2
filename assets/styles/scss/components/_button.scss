@@ -1,0 +1,10 @@
+button {
+    background-color: $green;
+    border: none;
+    color: $primary-color;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: $color-hover;
+}

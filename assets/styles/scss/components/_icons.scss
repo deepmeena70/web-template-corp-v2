@@ -1,0 +1,7 @@
+.caret-down {
+    @extend %fa-icon;
+    @extend .fas;
+    &:before {
+        content: fa-content($fa-var-caret-down);
+    }
+}

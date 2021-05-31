@@ -1,0 +1,57 @@
+.head-container-lg {
+    position: relative;
+    display: grid;
+    grid: 700px/6fr 6fr;
+    padding: 1.2em 6em 1.2em 6em;
+    .logo-img {
+        color: $primary-color
+    }
+}
+
+#menu {
+    display: grid;
+    grid: auto/repeat(5, auto);
+    padding-top: 36px;
+    ul {
+        position: fixed;
+        list-style: none;
+        display: none;
+        margin-top: 12px;
+    }
+    li {
+        background-color: rgba($black, 0.4);
+        line-height: 36px;
+        height: 48px;
+        padding: 8px 24px 0 24px;
+        font-size: 12px;
+        width: 100px;
+    }
+    li:hover {
+        background-color: rgba($black, 0.8);
+        .border {
+            border-bottom: 1px solid $color-hover;
+            animation: list-bottom-border 600ms linear forwards;
+        }
+    }
+}
+
+.menu-item {
+    color: $primary-color;
+    height: 50px;
+    span {
+        padding-right: 30px;
+    }
+}
+
+.head-container-sm {
+    display: none;
+}
+
+@keyframes list-bottom-border {
+    from {
+        width: 0px;
+    }
+    to {
+        width: 30px;
+    }
+}

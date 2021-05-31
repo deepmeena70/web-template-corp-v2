@@ -1,0 +1,29 @@
+@charset 'utf-8';
+// import fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+// utils
+@import 'utils/variables';
+@import 'utils/functions';
+@import 'utils/mixins';
+// fontawesome
+@import 'fontawesome/scss/fontawesome';
+@import 'fontawesome/scss/regular';
+@import 'fontawesome/scss/brands';
+@import 'fontawesome/scss/solid';
+// base
+@import 'base/reset';
+@import 'base/normalise';
+@import 'base/typography';
+// themes
+@import 'themes/light';
+//components
+@import 'components/icons';
+@import 'components/button';
+@import 'components/progress-animate';
+//header
+@import 'layout/header';
+// pages
+@import 'pages/front';
+// responsive
+@import 'responsive/components/header';
+@import 'responsive/pages/front';

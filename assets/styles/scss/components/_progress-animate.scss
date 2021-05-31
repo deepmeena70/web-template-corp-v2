@@ -1,0 +1,118 @@
+.circle {
+    position: absolute;
+    // overflow: hidden;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+    // background-color: rgba(yellow, 0.3);
+}
+
+.circle-display-one {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    // background-color: rgba(orange, 0.2);
+}
+
+.circle-display-two {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 50%;
+    overflow: hidden;
+    // background-color: rgba(orange, 0.4);
+}
+
+.circle-half-one {
+    position: absolute;
+    border: 5px solid $primary-color;
+    // border: 5px solid rgba(red, 0.1);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transform: rotate(135deg);
+    // animation: load-1 2s linear 2s forwards;
+    left: 0%;
+}
+
+.circle-half-one:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    border-top-color: $green;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: $green;
+    border-width: 4px;
+    position: absolute;
+    border-style: solid;
+    transform: translate(-50%, -50%);
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+.circle-half-two {
+    position: absolute;
+    border: 5px solid $primary-color;
+    // border: 5px solid rgba(blue, 0.3);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    transform: rotate(-45deg);
+    // animation: load-2 linear 2s forwards;
+    left: -100%;
+}
+
+.circle-half-two:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    border-top-color: $green;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: $green;
+    border-width: 4px;
+    position: absolute;
+    border-style: solid;
+    transform: translate(-50%, -50%);
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+@keyframes load-1 {
+    from {
+        transform: rotate(135deg)
+    }
+    to {
+        transform: rotate(315deg)
+    }
+}
+
+@keyframes load-2 {
+    from {
+        transform: rotate(-45deg)
+    }
+    to {
+        transform: rotate(135deg)
+    }
+}
+
+.progress-text {
+    color: $primary-color;
+    position: absolute;
+    font-size: 12px;
+    color: $black;
+    text-indent: 15px;
+}
