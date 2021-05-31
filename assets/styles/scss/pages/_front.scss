@@ -22,6 +22,7 @@
         position: relative;
         img {
             width: 100%;
+            z-index: -1;
         }
     }
     
@@ -35,7 +36,7 @@
     
     #head-block-container {
         display: grid;
-        grid: auto/9fr 3fr;
+        grid: auto auto/9fr 3fr;
         grid-gap: 4em;
         padding: 3em 6em 3em 6em;
         background-color: $primary-color;
@@ -52,7 +53,7 @@
     #feature-container {
         margin: 24px 84px 0 84px;
         display: grid;
-        grid: auto/repeat(auto-fit, minmax(250px, 4fr));
+        grid: auto auto auto/repeat(auto-fit, minmax(250px, 4fr));
         grid-gap: 24px;
         img {
             width: 100%;
@@ -66,17 +67,22 @@
     }
     
     #company-quote {
+        display: grid;
+        grid: auto/auto;
         margin-top: 2em;
         font-size: 28px;
         text-transform: uppercase;
         font-weight: 700;
         background-color: $black-secondary;
-        height: 200px;
-        p {
+        // height: 200px;
+        .content {
             margin-left: 174px;
             margin-right: 174px;
-            text-align: center;
             padding-top: 3em;
+            padding-bottom: 3em;
+        }
+        p {
+            text-align: center;
             color: $black-primary;
         }
     }
@@ -84,14 +90,16 @@
     #company-post-container {
         margin: 60px 84px 0 84px;
         display: grid;
-        grid: auto auto/repeat(2, 4fr);
-        grid-gap: 48px;
+        gap: 3em 0;
+        grid: auto auto auto/repeat(2, 4fr);
+        // grid-gap: 48px;
     }
     
     #our-skill {
         grid-column: 1/4;
         display: grid;
-        grid: auto auto/repeat(4, 3fr);
+        grid: auto auto auto auto auto/repeat(4, 3fr);
+        gap: 1.2em 0;
         text-transform: uppercase;
         // grid-gap: 24px;
         .title {
@@ -99,6 +107,7 @@
             text-align: center;
             font-size: 24px;
             font-weight: 700;
+            padding-bottom: 1em;
         }
         .skills {
             display: grid;
@@ -222,7 +231,7 @@
             height: 100%;
         }
         .quote {
-            margin: 24px 240px 0 240px;
+            margin: 24px 84px 0 84px;
             font-style: italic;
         }
         .name {
@@ -242,10 +251,14 @@
         }
     }
     
+    #testimonial-slider {
+        overflow: hidden;
+    }
+    
     @keyframes slide-animate {
         from {
             opacity: 0;
-            transform: translateX(100px);
+            transform: translateX(10px);
         }
     }
     
@@ -256,9 +269,8 @@
         font-size: 14px;
         .container {
             display: grid;
-            grid: auto auto/ repeat(4, minmax(min-content, 3fr));
-            grid-gap: 48px;
-            height: 580px;
+            grid: auto auto auto auto auto/ repeat(4, minmax(min-content, 3fr));
+            grid-gap: 1em 48px;
             .description,
             .address,
             .contact {
@@ -268,50 +280,48 @@
                 }
             }
         }
-    }
-    
-    .feature-pages {
-        .title {
-            font-size: 16px;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-        }
-        div {
-            margin-bottom: 12px;
-        }
-    }
-    
-    .recent {
-        .title {
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-        }
-        div {
-            margin-bottom: 12px;
-        }
-    }
-    
-    .footer-data {
-        grid-column: 4/6;
-        .numbers {
-            div:first-child {
-                font-size: 48px;
+        .feature-pages {
+            .title {
+                font-size: 16px;
+                text-transform: uppercase;
                 font-weight: 700;
+                letter-spacing: 1.5px;
             }
             div {
-                font-size: 24px;
+                margin-bottom: 12px;
+            }
+        }
+        .recent {
+            .title {
+                margin-bottom: 12px;
+                text-transform: uppercase;
+                font-size: 16px;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+            }
+            div {
+                margin-bottom: 12px;
+            }
+        }
+        .footer-data {
+            grid-column: 4/6;
+            .numbers {
+                div:first-child {
+                    font-size: 48px;
+                    font-weight: 700;
+                }
+                div {
+                    font-size: 24px;
+                }
             }
         }
     }
     
     #newsletter {
         grid-column: 1/6;
-        grid-row: 2/3;
+        grid-row: 5/6;
         text-align: center;
+        padding-bottom: 9em;
         .text {
             font-size: 28px;
             font-weight: 700;
@@ -319,13 +329,13 @@
         form {
             margin-top: 24px;
             input[name="email"] {
-                width: 30%;
+                width: 30em;
                 height: 40px;
                 padding-left: 12px;
             }
             input[type="submit"] {
-                width: 8%;
-                height: 40px;
+                width: 10em;
+                height: 46px;
                 color: $primary-color;
                 background-color: $green;
                 border: none;
@@ -345,51 +355,46 @@
             margin-top: 12px;
             color: $primary-color;
         }
-    }
-    
-    .facebook {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-facebook);
+        .facebook {
+            @extend %fa-icon;
+            @extend .fab;
+            &:before {
+                content: fa-content($fa-var-facebook);
+            }
         }
-    }
-    
-    .twitter {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-twitter);
+        .twitter {
+            @extend %fa-icon;
+            @extend .fab;
+            &:before {
+                content: fa-content($fa-var-twitter);
+            }
         }
-    }
-    
-    .linkedin {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-linkedin);
+        .linkedin {
+            @extend %fa-icon;
+            @extend .fab;
+            &:before {
+                content: fa-content($fa-var-linkedin);
+            }
         }
-    }
-    
-    .instagram {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-instagram);
+        .instagram {
+            @extend %fa-icon;
+            @extend .fab;
+            &:before {
+                content: fa-content($fa-var-instagram);
+            }
         }
-    }
-    
-    .telegram {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-telegram);
+        .telegram {
+            @extend %fa-icon;
+            @extend .fab;
+            &:before {
+                content: fa-content($fa-var-telegram);
+            }
         }
     }
     
     #sub-footer {
         text-align: right;
-        padding-bottom: 24px;
+        padding-bottom: 1.2em;
         span {
             font-weight: 700;
         }

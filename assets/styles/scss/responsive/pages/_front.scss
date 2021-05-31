@@ -4,4 +4,93 @@
             display: none;
         }
     }
+    #head-block-container {
+        padding-left: 1em;
+        padding-right: 1em;
+        .content {
+            grid-column: 1/4;
+        }
+        button {
+            width: 100%;
+        }
+        .btn {
+            grid-row: 2/3;
+            grid-column: 1/4;
+        }
+    }
+    #feature-container {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    #company-quote {
+        .content {
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+    }
+    #company-post-container {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    #our-skill {
+        .item-1 {
+            grid-column: 1/10;
+            grid-row: 2/3;
+        }
+        .item-2 {
+            grid-column: 1/10;
+            grid-row: 3/4;
+        }
+        .item-3 {
+            grid-column: 1/10;
+            grid-row: 4/5;
+        }
+        .item-4 {
+            grid-column: 1/10;
+            grid-row: 5/6;
+        }
+    }
+    #accordion {
+        grid-column: 1/4;
+    }
+    #recent-post {
+        grid-column: 1/4;
+        .content {
+            gap: 1em 0.4em;
+        }
+    }
+    #testimonial-container {
+        .quote {
+            margin-left: 1em;
+            margin-right: 1em;
+        }
+    }
+    footer {
+        padding-left: 1em;
+        padding-right: 1em;
+        .container {
+            gap: 4em 0em;
+        }
+        div,
+        .footer-data {
+            grid-column: 1/6;
+        }
+    }
+    #newsletter {
+        padding-bottom: 3em;
+        form {
+            margin-top: 24px;
+            input[name="email"] {
+                width: 14em;
+                height: 30px;
+            }
+            input[type="submit"] {
+                width: 6em;
+                height: 36px;
+            }
+        }
+    }
+    #sub-footer {
+        text-align: center;
+    }
 }
