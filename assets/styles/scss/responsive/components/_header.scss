@@ -10,18 +10,18 @@
             .logo-img {
                 color: $black-primary;
                 padding-left: 1em;
-                font-weight: 400;
+                font-weight: 700;
                 text-transform: uppercase;
             }
         }
     }
     #mob-slider {
         position: relative;
+        height: 400px;
         // background-color: $green;
         overflow: hidden;
         .main {
             display: block;
-            height: 500px;
             width: 100%;
         }
         .mob-slide {
