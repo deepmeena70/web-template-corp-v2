@@ -87,7 +87,7 @@ const playSlide = (slides, duration) => {
         else
             slideCount = 0;
     }, duration);
-    setInterval(() => { console.log(slideCount) }, 3000);
+    // setInterval(() => { console.log(slideCount) }, 3000);
 };
 
 // footer count
@@ -166,12 +166,129 @@ const footerCount = () => {
     let counterInterval = setInterval(counter, 100);
 };
 
+// toggler
+const toggle = document.getElementById("toggle");
+const toggleBtn = document.getElementById("toggle-btn");
+const menuSm = document.getElementById("menu-sm");
+const playToggle = () => {
+    toggleBtn.addEventListener("load", e => {
+        let svgDoc = toggleBtn.contentDocument;
+        let svgIcon = svgDoc.getElementById("toggle-menu");
+        let line1 = svgDoc.getElementById("line-1");
+        let line2 = svgDoc.getElementById("line-2");
+        let line3 = svgDoc.getElementById("line-3");
+        let active = false;
+        svgIcon.addEventListener("click", e => {
+            if (active) {
+                line3.animate([
+                    { transform: 'rotate(0deg)' }
+                ], {
+                    duration: 300,
+                    fill: 'forwards'
+                });
+                line2.animate([
+                    { transform: 'rotate(0deg)' }
+                ], {
+                    duration: 300,
+                    fill: 'forwards'
+                });
+                line3.animate([
+                    { transform: 'translateY(' + (line2.getAttribute('x1') / 2) + 'px)' }
+                ], {
+                    delay: 300,
+                    duration: 200,
+                    fill: 'forwards',
+                });
+                line1.animate([
+                    { transform: 'rotate(0deg)' }
+                ], {
+                    delay: 500,
+                    duration: 200,
+                    fill: 'forwards',
+                });
+                toggleBtn.animate([
+                    { transform: 'rotate(0deg)' }
+                ], {
+                    delay: 700,
+                    duration: 300,
+                    fill: 'forwards',
+                });
+                active = false;
+            } else {
+                toggleBtn.animate([
+                    { transform: 'rotate(-90deg)' }
+                ], {
+                    duration: 300,
+                    fill: 'forwards',
+                });
+                line1.animate([
+                    { transform: 'rotate(-90deg)' }
+                ], {
+                    delay: 300,
+                    duration: 200,
+                    fill: 'forwards',
+                });
+                line3.animate([
+                    { transform: 'translateY(' + (-line2.getAttribute('x1') / 2) + 'px)' }
+                ], {
+                    delay: 500,
+                    duration: 200,
+                    fill: 'forwards',
+                });
+                line3.setAttribute('y1', line2.getAttribute('y1'));
+                line3.setAttribute('y2', line2.getAttribute('y2'));
+                line2.style.transformOrigin = "center center";
+                line3.style.transformOrigin = "center center";
+                line2.animate([
+                    { transform: 'rotate(-45deg)' }
+                ], {
+                    delay: 700,
+                    duration: 200,
+                    fill: 'forwards'
+                });
+                line3.animate([
+                    { transform: 'rotate(45deg)' }
+                ], {
+                    delay: 700,
+                    duration: 200,
+                    fill: 'forwards'
+                });
+                active = true;
+            }
+
+            if (active) {
+                setTimeout(() => {
+                    menuSm.style.display = 'block';
+                }, 800);
+                menuSm.style.animation = "menu_sm_background 500ms linear   forwards";
+            } else {
+                menuSm.style.animation = "menu_sm_background_rev 500ms linear   forwards";
+                setTimeout(() => {
+                    menuSm.style.display = 'none';
+                }, 800);
+            }
+        });
+
+
+
+    });
+};
+const toggler = () => {
+    if (scrollY < 10) {
+        toggle.style.display = "inline-block";
+    } else {
+        toggle.style.display = "none";
+
+    }
+};
+
+
 //load 
 dropdowns();
 accordionActions();
 playSlide(mobSlides, 2000);
 playSlide(testimonialSlides, 3000);
-
+playToggle();
 
 // on scroll
 
@@ -202,4 +319,7 @@ window.addEventListener('scroll', e => {
 
         footerActive = true;
     }
+
+    // toggler
+    toggler();
 });
