@@ -386,5 +386,5 @@ window.addEventListener('scroll', e => {
     }
 
     // toggler
-    // toggler();
+    toggler();
 });
