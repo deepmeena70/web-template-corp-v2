@@ -1,21 +1,21 @@
 // dropdowns
 const menuItem = document.getElementsByClassName("menu-item");
 const list = document.getElementsByClassName("list");
-const expand = (i) => {
+const expand = (list, i) => {
     list[i].style.display = "block";
 };
 
-const collapse = (i) => {
+const collapse = (list, i) => {
     list[i].style.display = "none";
 };
 const dropdowns = () => {
 
     for (let i = 0; i < menuItem.length; i++) {
         menuItem[i].addEventListener('mouseover', e => {
-            expand(i);
+            expand(list, i);
         });
         menuItem[i].addEventListener('mouseleave', e => {
-            collapse(i);
+            collapse(list, i);
         });
     }
 };
@@ -165,11 +165,42 @@ const footerCount = () => {
 
     let counterInterval = setInterval(counter, 100);
 };
+/*********Phone************/
+//dropdowns
+const menuSmItem = document.getElementsByClassName("menu-sm-item");
+const menuSmItemList = document.getElementsByClassName("menu-sm-item-list");
+
+const dropdown_sm = () => {
+    for (let i = 0; i < menuSmItemList.length; i++) {
+
+        menuSmItem[i].addEventListener('click', e => {
+            expand(menuSmItemList, i);
+            for (let j = 0; j < menuSmItemList.length; j++) {
+                if (j != i) {
+                    menuSmItemList[j].style.display = "none";
+                }
+            }
+        });
+    }
+};
+
+
 
 // toggler
 const toggle = document.getElementById("toggle");
 const toggleBtn = document.getElementById("toggle-btn");
 const menuSm = document.getElementById("menu-sm");
+const menuSmItemBlock = document.getElementsByClassName("menu-sm-item-block");
+const menuSmItemAct = (arr, show) => {
+
+    for (let i = 0; i < arr.length; i++) {
+        if (show) {
+            arr[i].style.display = "block";
+        } else {
+            arr[i].style.display = "none";
+        }
+    }
+};
 const playToggle = () => {
     toggleBtn.addEventListener("load", e => {
         let svgDoc = toggleBtn.contentDocument;
@@ -177,8 +208,14 @@ const playToggle = () => {
         let line1 = svgDoc.getElementById("line-1");
         let line2 = svgDoc.getElementById("line-2");
         let line3 = svgDoc.getElementById("line-3");
+        let stroke1 = line2.getAttribute('stroke');
+        let stroke2 = "#32E875";
         let active = false;
         svgIcon.addEventListener("click", e => {
+            // hide menu item before close
+            for (let i = 0; i < menuSmItemList.length; i++) {
+                menuSmItemList[i].style.display = "none";
+            }
             if (active) {
                 line3.animate([
                     { transform: 'rotate(0deg)' }
@@ -192,6 +229,7 @@ const playToggle = () => {
                     duration: 300,
                     fill: 'forwards'
                 });
+
                 line3.animate([
                     { transform: 'translateY(' + (line2.getAttribute('x1') / 2) + 'px)' }
                 ], {
@@ -213,7 +251,12 @@ const playToggle = () => {
                     duration: 300,
                     fill: 'forwards',
                 });
+                setTimeout(() => {
+                    line2.setAttribute('stroke', stroke1);
+                    line3.setAttribute('stroke', stroke1);
+                }, 490);
                 active = false;
+
             } else {
                 toggleBtn.animate([
                     { transform: 'rotate(-90deg)' }
@@ -239,6 +282,7 @@ const playToggle = () => {
                 line3.setAttribute('y2', line2.getAttribute('y2'));
                 line2.style.transformOrigin = "center center";
                 line3.style.transformOrigin = "center center";
+
                 line2.animate([
                     { transform: 'rotate(-45deg)' }
                 ], {
@@ -253,20 +297,39 @@ const playToggle = () => {
                     duration: 200,
                     fill: 'forwards'
                 });
+                setTimeout(() => {
+
+                    line2.setAttribute('stroke', stroke2);
+                    line3.setAttribute('stroke', stroke2);
+                }, 490);
                 active = true;
             }
-
+            // menu components load
             if (active) {
                 setTimeout(() => {
                     menuSm.style.display = 'block';
-                }, 800);
-                menuSm.style.animation = "menu_sm_background 500ms linear   forwards";
+                }, 500);
+
+                setTimeout(() => {
+                    menuSmItemAct(menuSmItemBlock, true);
+                }, 510);
+
+                menuSm.style.animation = "menu_sm_background 400ms ease-in   forwards";
+                // prevent document scroll
+                body.style.overflow = "hidden";
             } else {
-                menuSm.style.animation = "menu_sm_background_rev 500ms linear   forwards";
+                menuSm.style.animation = "menu_sm_background_rev 400ms ease-in   forwards";
                 setTimeout(() => {
                     menuSm.style.display = 'none';
-                }, 800);
+                }, 400);
+                setTimeout(() => {
+                    menuSmItemAct(menuSmItemBlock, false);
+                }, 300);
+
+                // enable document scroll
+                body.style.overflow = "auto";
             }
+
         });
 
 
@@ -289,8 +352,9 @@ accordionActions();
 playSlide(mobSlides, 2000);
 playSlide(testimonialSlides, 3000);
 playToggle();
+dropdown_sm();
 
-// on scroll
+// on scroll load
 
 const body = document.body,
     html = document.documentElement;
@@ -303,7 +367,8 @@ let progressActive = false;
 
 window.addEventListener('scroll', e => {
     for (let i = 0; i < list.length; i++) {
-        collapse(i);
+        if (innerWidth > 700)
+            collapse(list, i);
     }
     // progress circle animation
     if (scrollY > height * 0.4) {
@@ -321,5 +386,5 @@ window.addEventListener('scroll', e => {
     }
 
     // toggler
-    toggler();
+    // toggler();
 });

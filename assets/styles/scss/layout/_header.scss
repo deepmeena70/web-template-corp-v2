@@ -25,12 +25,17 @@
         padding: 8px 24px 0 24px;
         font-size: 12px;
         width: 100px;
-    }
-    li:hover {
-        background-color: rgba($black, 0.8);
-        .border {
-            border-bottom: 1px solid $color-hover;
-            animation: list-bottom-border 600ms linear forwards;
+        a {
+            color: inherit;
+            background-color: transparent;
+            text-decoration: none;
+        }
+        &:hover {
+            background-color: rgba($black, 0.8);
+            .border {
+                border-bottom: 1px solid $color-hover;
+                animation: list-bottom-border 600ms linear forwards;
+            }
         }
     }
 }
@@ -53,5 +58,16 @@
     }
     to {
         width: 30px;
+    }
+}
+
+@keyframes list-bottom-border_2 {
+    from {
+        transform: translateX(0%);
+        width: 0;
+    }
+    to {
+        transform: translateX(45vw);
+        width: 10%;
     }
 }

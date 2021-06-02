@@ -6907,6 +6907,12 @@ button:hover {
   width: 100px;
 }
 
+#menu li a {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
 #menu li:hover {
   background-color: rgba(5, 4, 1, 0.8);
 }
@@ -6945,6 +6951,32 @@ button:hover {
   }
   to {
     width: 30px;
+  }
+}
+
+@-webkit-keyframes list-bottom-border_2 {
+  from {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    width: 0;
+  }
+  to {
+    -webkit-transform: translateX(45vw);
+            transform: translateX(45vw);
+    width: 10%;
+  }
+}
+
+@keyframes list-bottom-border_2 {
+  from {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    width: 0;
+  }
+  to {
+    -webkit-transform: translateX(45vw);
+            transform: translateX(45vw);
+    width: 10%;
   }
 }
 
@@ -7475,15 +7507,56 @@ footer .footer-data .numbers div {
   }
   header .head-container-sm #menu-sm {
     position: fixed;
-    background-color: #ffffff;
+    background-color: rgba(5, 4, 1, 0.7);
+    top: 0;
     width: 100%;
     height: 100%;
     top: 0;
     z-index: 1;
     display: none;
+    padding-top: 7em;
   }
   header .head-container-sm #menu-sm .logo-img {
     position: fixed;
+  }
+  header .head-container-sm #menu-sm .menu-sm-item-block {
+    position: relative;
+    color: #ffffff;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    letter-spacing: 4px;
+  }
+  header .head-container-sm #menu-sm .menu-sm-item-block span:hover {
+    color: #32E875;
+  }
+  header .head-container-sm #menu-sm .menu-sm-item-list {
+    color: #ffffff;
+    display: none;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+  header .head-container-sm #menu-sm .menu-sm-item-list li {
+    letter-spacing: 1px;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+    font-size: 0.8em;
+  }
+  header .head-container-sm #menu-sm .menu-sm-item-list li a {
+    text-decoration: none;
+    color: inherit;
+  }
+  header .head-container-sm #menu-sm .menu-sm-item-list li a:active {
+    background-color: none;
+    color: inherit;
+  }
+  header .head-container-sm #menu-sm .menu-sm-item-list li a:focus {
+    background-color: none;
+  }
+  header .head-container-sm #menu-sm .menu-sm-item-list li:hover {
+    background-color: rgba(5, 4, 1, 0.8);
   }
   @-webkit-keyframes menu_sm_background {
     from {
