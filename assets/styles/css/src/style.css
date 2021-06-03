@@ -7038,6 +7038,7 @@ button:hover {
   width: 200px;
   height: 40px;
   float: right;
+  letter-spacing: 2px;
 }
 
 #head-block-container p {
@@ -7057,11 +7058,25 @@ button:hover {
 }
 
 #feature-container h3 {
-  margin-top: 12px;
+  margin-top: 18px;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
 }
 
 #feature-container p {
   margin-top: 12px;
+}
+
+#feature-container .subtitle {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(5, 4, 1, 0.7);
+}
+
+#feature-container .description {
+  letter-spacing: 0px;
+  text-align: justify;
 }
 
 #company-quote {
@@ -7072,7 +7087,8 @@ button:hover {
   font-size: 28px;
   text-transform: uppercase;
   font-weight: 700;
-  background-color: rgba(5, 4, 1, 0.3);
+  background-position: center 50%;
+  background-repeat: no-repeat;
 }
 
 #company-quote .content {
@@ -7085,6 +7101,19 @@ button:hover {
 #company-quote p {
   text-align: center;
   color: rgba(5, 4, 1, 0.7);
+}
+
+#company-quote .quote {
+  font-size: 24px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 1em;
+  font-style: italic;
+}
+
+#company-quote .name {
+  font-size: 12px;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 0 1em 2em 1em;
 }
 
 #company-post-container {
@@ -7740,6 +7769,8 @@ footer .footer-data .numbers div {
   }
   #head-block-container button {
     width: 100%;
+    letter-spacing: 3px;
+    font-size: 14px;
   }
   #head-block-container .btn {
     -ms-grid-row: 2;
@@ -7752,10 +7783,37 @@ footer .footer-data .numbers div {
   #feature-container {
     margin-left: 1em;
     margin-right: 1em;
+    text-align: center;
+  }
+  #feature-container h3 {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+  #feature-container .subtitle {
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: rgba(5, 4, 1, 0.7);
+  }
+  #feature-container .description {
+    letter-spacing: 0px;
+    text-align: justify;
   }
   #company-quote .content {
     margin-left: 1em;
     margin-right: 1em;
+  }
+  #company-quote .content .quote {
+    font-size: 12px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1em;
+    font-style: italic;
+  }
+  #company-quote .content .name {
+    font-size: 9px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 0 1em 2em 1em;
   }
   #company-post-container {
     margin-left: 1em;

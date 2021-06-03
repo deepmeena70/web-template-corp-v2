@@ -12,6 +12,8 @@
         }
         button {
             width: 100%;
+            letter-spacing: 3px;
+            font-size: 14px;
         }
         .btn {
             grid-row: 2/3;
@@ -21,11 +23,38 @@
     #feature-container {
         margin-left: 1em;
         margin-right: 1em;
+        text-align: center;
+        h3 {
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+        .subtitle {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: rgba($black, 0.7);
+        }
+        .description {
+            letter-spacing: 0px;
+            text-align: justify;
+        }
     }
     #company-quote {
         .content {
             margin-left: 1em;
             margin-right: 1em;
+            .quote {
+                font-size: 12px;
+                background-color: rgba($primary-color, 0.7);
+                padding: 1em;
+                font-style: italic;
+            }
+            .name {
+                font-size: 9px;
+                background-color: rgba($primary-color, 0.7);
+                padding: 0 1em 2em 1em;
+            }
         }
     }
     #company-post-container {

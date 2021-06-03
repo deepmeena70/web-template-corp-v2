@@ -20,6 +20,33 @@ const dropdowns = () => {
     }
 };
 
+// parallax
+const parallaxImg = document.getElementsByClassName("parallax");
+let positionY = 50;
+let diff = 1;
+
+const parallax = () => {
+    let lastScroll = 100;
+    document.addEventListener("scroll", e => {
+        let scroll = window.pageYOffset || document.documentElement.scrollTop;
+
+        if (scroll > lastScroll) {
+            // downscroll code
+            if (positionY <= 100) {
+                parallaxImg[0].style.backgroundPosition = "center " + positionY + "%";
+                positionY += diff;
+            }
+        } else {
+            // upscroll code
+            if (positionY >= 0) {
+                parallaxImg[0].style.backgroundPosition = "center " + positionY + "%";
+                positionY -= diff;
+            }
+        }
+        lastScroll = scroll <= 0 ? 0 : scroll; // For Mobile or negative scrolling
+    });
+};
+
 // progress
 const circleHalfOne = document.getElementsByClassName("circle-half-one");
 const circleHalfTwo = document.getElementsByClassName("circle-half-two");
@@ -368,10 +395,15 @@ let footerActive = false;
 let progressActive = false;
 
 window.addEventListener('scroll', e => {
+    // dropdowns
     for (let i = 0; i < list.length; i++) {
+
         if (innerWidth > 700)
             collapse(list, i);
     }
+    // parallax
+    if (scrollY > height * 0.33 && scrollY < height * 0.35)
+        parallax();
     // progress circle animation
     if (innerWidth < 500) {
         if (scrollY > height * 0.92) {

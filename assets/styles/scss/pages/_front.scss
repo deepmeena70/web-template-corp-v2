@@ -44,6 +44,7 @@
             width: 200px;
             height: 40px;
             float: right;
+            letter-spacing: 2px;
         }
         p {
             margin-top: 12px;
@@ -59,10 +60,22 @@
             width: 100%;
         }
         h3 {
-            margin-top: 12px;
+            margin-top: 18px;
+            text-transform: uppercase;
+            font-weight: 400;
+            letter-spacing: 2px;
         }
         p {
             margin-top: 12px;
+        }
+        .subtitle {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba($black, 0.7);
+        }
+        .description {
+            letter-spacing: 0px;
+            text-align: justify;
         }
     }
     
@@ -73,7 +86,8 @@
         font-size: 28px;
         text-transform: uppercase;
         font-weight: 700;
-        background-color: $black-secondary;
+        background-position: center 50%;
+        background-repeat: no-repeat;
         // height: 200px;
         .content {
             margin-left: 174px;
@@ -84,6 +98,17 @@
         p {
             text-align: center;
             color: $black-primary;
+        }
+        .quote {
+            font-size: 24px;
+            background-color: rgba($primary-color, 0.7);
+            padding: 1em;
+            font-style: italic;
+        }
+        .name {
+            font-size: 12px;
+            background-color: rgba($primary-color, 0.7);
+            padding: 0 1em 2em 1em;
         }
     }
     
