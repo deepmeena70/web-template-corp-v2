@@ -21,12 +21,10 @@ const dropdowns = () => {
 };
 
 // parallax
-const parallaxImg = document.getElementsByClassName("parallax");
-let positionY = 50;
-let diff = 1;
 
-const parallax = () => {
-    let lastScroll = 100;
+
+const parallax = (diff, positionY, parallaxImg) => {
+    let lastScroll = 0;
     document.addEventListener("scroll", e => {
         let scroll = window.pageYOffset || document.documentElement.scrollTop;
 
@@ -45,6 +43,13 @@ const parallax = () => {
         }
         lastScroll = scroll <= 0 ? 0 : scroll; // For Mobile or negative scrolling
     });
+};
+
+const playParallax = (speed) => {
+    const parallaxImg = document.getElementsByClassName("parallax");
+    let positionY = 50;
+    let diff = speed;
+    parallax(diff, positionY, parallaxImg);
 };
 
 // progress
@@ -402,8 +407,13 @@ window.addEventListener('scroll', e => {
             collapse(list, i);
     }
     // parallax
-    if (scrollY > height * 0.33 && scrollY < height * 0.35)
-        parallax();
+    if (innerWidth > 500) {
+        if (scrollY > height * 0.33 && scrollY < height * 0.41)
+            playParallax(10);
+    } else {
+        if (scrollY > height * 0.4 && scrollY < height * 0.41)
+            playParallax(1.5);
+    }
     // progress circle animation
     if (innerWidth < 500) {
         if (scrollY > height * 0.92) {
