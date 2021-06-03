@@ -80,6 +80,7 @@ const slider = (slides, slideCount) => {
 };
 const playSlide = (slides, duration) => {
     let slideCount = 0;
+
     setInterval(() => {
         slider(slides, slideCount);
         if (slideCount < slides.length - 1)
@@ -87,6 +88,7 @@ const playSlide = (slides, duration) => {
         else
             slideCount = 0;
     }, duration);
+
     // setInterval(() => { console.log(slideCount) }, 3000);
 };
 
@@ -349,7 +351,7 @@ const toggler = () => {
 //load 
 dropdowns();
 accordionActions();
-playSlide(mobSlides, 2000);
+playSlide(mobSlides, 3000);
 playSlide(testimonialSlides, 3000);
 playToggle();
 dropdown_sm();
@@ -371,6 +373,21 @@ window.addEventListener('scroll', e => {
             collapse(list, i);
     }
     // progress circle animation
+    if (innerWidth < 500) {
+        if (scrollY > height * 0.92) {
+            if (footerActive == false)
+                footerCount();
+
+            footerActive = true;
+        }
+    } else {
+        if (scrollY > height * 0.65) {
+            if (footerActive == false)
+                footerCount();
+
+            footerActive = true;
+        }
+    }
     if (scrollY > height * 0.4) {
         if (progressActive == false) {
             progress();
@@ -378,12 +395,7 @@ window.addEventListener('scroll', e => {
         progressActive = true;
     }
     // footer count animation
-    if (scrollY > height * 0.65) {
-        if (footerActive == false)
-            footerCount();
 
-        footerActive = true;
-    }
 
     // toggler
     toggler();
