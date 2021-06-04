@@ -377,9 +377,6 @@ const playToggle = () => {
             }
 
         });
-
-
-
     });
 };
 const toggler = () => {
