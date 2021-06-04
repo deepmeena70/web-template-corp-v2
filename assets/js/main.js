@@ -390,16 +390,19 @@ const toggler = () => {
 
 
 //load 
-dropdowns();
-accordionActions();
-playSlide(mobSlides, 3000);
-playSlide(testimonialSlides, 3000);
-playToggle();
-dropdown_sm();
-if (innerWidth > 500)
-    playParallax(1, height * 0.3, height * 0.5);
-else
-    playParallax(0.7, height * 0.3, height * 0.5);
+document.addEventListener("readystatechange", e => {
+    dropdowns();
+    accordionActions();
+    playSlide(mobSlides, 3000);
+    playSlide(testimonialSlides, 3000);
+    playToggle();
+    dropdown_sm();
+    if (innerWidth > 500)
+        playParallax(1, height * 0.3, height * 0.5);
+    else
+        playParallax(0.7, height * 0.3, height * 0.5);
+});
+
 
 // on scroll load
 
