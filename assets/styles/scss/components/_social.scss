@@ -3,39 +3,9 @@
         margin-right: 12px;
         margin-top: 12px;
     }
-    .facebook {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-facebook);
-        }
-    }
-    .twitter {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-twitter);
-        }
-    }
-    .linkedin {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-linkedin);
-        }
-    }
-    .instagram {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-instagram);
-        }
-    }
-    .telegram {
-        @extend %fa-icon;
-        @extend .fab;
-        &:before {
-            content: fa-content($fa-var-telegram);
-        }
-    }
+    @include social-icon("facebook", $fa-var-facebook, "fab");
+    @include social-icon("twitter", $fa-var-twitter, "fab");
+    @include social-icon("linkedin", $fa-var-linkedin, "fab");
+    @include social-icon("instagram", $fa-var-instagram, "fab");
+    @include social-icon("telegram", $fa-var-telegram, "fab");
 }

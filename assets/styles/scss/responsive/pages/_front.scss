@@ -1,4 +1,4 @@
-@media (max-width:500px) {
+@media (max-width:768px) {
     #hero-img-wrapper {
         video {
             display: none;
@@ -10,11 +10,7 @@
         .content {
             grid-column: 1/4;
         }
-        button {
-            width: 100%;
-            letter-spacing: 3px;
-            font-size: 14px;
-        }
+        @include buttons(14px, 3px, 100%, 40px);
         .btn {
             grid-row: 2/3;
             grid-column: 1/4;
@@ -140,5 +136,13 @@
     }
     #sub-footer {
         text-align: center;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1210px) {
+    #menu {
+        .menu-item {
+            font-size: 12px;
+        }
     }
 }

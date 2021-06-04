@@ -1,4 +1,4 @@
-@media (max-width:500px) {
+@media (max-width:768px) {
     header {
         padding-top: 0.5em;
         padding-bottom: 2em;
@@ -12,6 +12,9 @@
                 padding-left: 1em;
                 font-weight: 700;
                 text-transform: uppercase;
+                h1 {
+                    color: inherit;
+                }
             }
         }
     }

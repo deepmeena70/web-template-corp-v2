@@ -1,0 +1,27 @@
+// buttons
+@mixin buttons($font-size, $letter-spacing, $width, $height) {
+    button {
+        background-color: $green;
+        letter-spacing: #{$letter-spacing};
+        font-size: #{$font-size};
+        text-transform: uppercase;
+        border: none;
+        color: $primary-color;
+        width: #{$width};
+        height: #{$height};
+    }
+    button:hover {
+        background-color: $color-hover;
+    }
+}
+
+// social
+@mixin social-icon($class, $icon_name, $extend_class) {
+    .#{$class} {
+        @extend %fa-icon;
+        @extend .#{$extend_class};
+        &:before {
+            content: fa-content($icon_name);
+        }
+    }
+}
