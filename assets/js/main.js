@@ -404,10 +404,6 @@ if (innerWidth > 500)
 else
     playParallax(0.7, height * 0.3, height * 0.5);
 
-// parallax
-playParallax(1);
-playParallax(1.5);
-
 // on scroll load
 
 let footerActive = false;
