@@ -1,0 +1,24 @@
+@media (max-width:500px) {
+    header {
+        padding-top: 0.5em;
+        padding-bottom: 2em;
+        .head-container-lg {
+            display: none;
+        }
+        .head-container-sm {
+            display: block;
+            .logo-img {
+                color: $black-primary;
+                padding-left: 1em;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+    }
+    #hero-img-wrapper {
+        display: none;
+    }
+    #menu {
+        display: none;
+    }
+}

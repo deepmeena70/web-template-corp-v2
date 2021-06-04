@@ -19,11 +19,23 @@
 //components
 @import 'components/icons';
 @import 'components/button';
+@import 'components/menu';
 @import 'components/progress-animate';
+@import 'components/social';
 //header
 @import 'layout/header';
+@import 'layout/hero';
+@import 'layout/testimonial-slider';
+@import 'layout/footer';
+@import 'layout/newsletter';
 // pages
 @import 'pages/front';
-// responsive
-@import 'responsive/components/header';
+// responsive //
+// components
+@import 'responsive/components/toggle';
+@import 'responsive/components/menu';
+// layout
+@import 'responsive/layout/header';
+@import 'responsive/layout/hero-slider';
+// pages
 @import 'responsive/pages/front';

@@ -1,0 +1,23 @@
+#newsletter {
+    grid-column: 1/6;
+    grid-row: 5/6;
+    text-align: center;
+    padding-bottom: 9em;
+    form {
+        margin-top: 24px;
+        input[name="email"] {
+            width: 30em;
+            height: 40px;
+            padding-left: 12px;
+        }
+        input[type="submit"] {
+            width: 10em;
+            height: 46px;
+            background-color: $green;
+            border: none;
+        }
+        input[type="submit"]:hover {
+            background-color: $color-hover;
+        }
+    }
+}

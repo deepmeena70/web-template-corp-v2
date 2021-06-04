@@ -1,0 +1,11 @@
+@media (max-width:500px) {
+    #toggle {
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        position: fixed;
+        top: 1.4em;
+        right: 0.6em;
+        z-index: 2;
+    }
+}

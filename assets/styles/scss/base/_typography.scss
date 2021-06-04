@@ -3,9 +3,10 @@ body {
     line-height: 1.2;
 }
 
-#logo-img {
+.logo-img h1 {
     text-transform: uppercase;
     font-weight: 700;
+    color: $primary-color;
 }
 
 #menu {
@@ -13,8 +14,15 @@ body {
         color: $primary-color;
         text-transform: uppercase;
     }
+    li {
+        font-size: 12px;
+    }
     .menu-item {
         text-transform: uppercase;
+        color: $primary-color;
+        a {
+            color: inherit;
+        }
     }
 }
 
@@ -24,7 +32,6 @@ body {
         font-weight: bold;
         color: $primary-color;
         text-transform: uppercase;
-        line-height: 0.9;
     }
     p {
         color: $primary-color;
@@ -40,6 +47,9 @@ body {
     p {
         letter-spacing: 1.5px;
     }
+    button {
+        letter-spacing: 2px;
+    }
 }
 
 #feature-container {
@@ -48,5 +58,141 @@ body {
     }
     .description {
         color: $black-primary;
+    }
+}
+
+#company-quote {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 700;
+    p {
+        color: $black-primary;
+    }
+    .quote {
+        font-size: 24px;
+        font-style: italic;
+    }
+    .name {
+        font-size: 12px;
+    }
+}
+
+#our-skill {
+    text-transform: uppercase;
+    .title {
+        font-size: 24px;
+        font-weight: 700;
+    }
+    .skills {
+        font-weight: 700;
+        font-size: 14px;
+    }
+}
+
+#accordion .accordion-description {
+    color: $black-primary
+}
+
+#recent-post {
+    .section-title {
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .time {
+        font-size: 12px;
+        .cal {
+            color: rgba($black, 0.8);
+        }
+    }
+}
+
+#testimonial-container {
+    .text {
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        font-size: 28px;
+        color: $black-secondary;
+        span {
+            color: $green;
+        }
+    }
+    .quote {
+        font-style: italic;
+    }
+    .name {
+        text-transform: uppercase;
+    }
+    .company-post {
+        color: $black-primary;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+}
+
+footer {
+    color: rgba($primary-color, 0.7);
+    font-size: 14px;
+    .container {
+        .description,
+        .address,
+        .contact {
+            span {
+                font-weight: 700;
+            }
+        }
+        .feature-pages {
+            .title {
+                font-size: 16px;
+                text-transform: uppercase;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+            }
+        }
+        .recent {
+            .title {
+                text-transform: uppercase;
+                font-size: 16px;
+                font-weight: 700;
+                letter-spacing: 1.5px;
+            }
+        }
+        .footer-data {
+            .numbers {
+                div:first-child {
+                    font-size: 48px;
+                    font-weight: 700;
+                }
+                div {
+                    font-size: 24px;
+                }
+            }
+        }
+    }
+}
+
+#newsletter {
+    .text {
+        font-size: 28px;
+        font-weight: 700;
+    }
+    form {
+        input[type="submit"] {
+            color: $primary-color;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+    }
+}
+
+#social {
+    color: $primary-color;
+}
+
+#sub-footer {
+    text-align: right;
+    span {
+        font-weight: 700;
     }
 }

@@ -1,0 +1,36 @@
+footer {
+    background-color: $black;
+    padding: 60px 84px 0 84px;
+    .container {
+        display: grid;
+        grid: auto auto auto auto auto/ repeat(4, minmax(min-content, 3fr));
+        grid-gap: 1em 48px;
+        .logo h1 {
+            margin: 0;
+        }
+        .description,
+        .address,
+        .contact {
+            margin-top: 12px;
+        }
+    }
+    .feature-pages,
+    .recent {
+        div {
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+    }
+    .recent {
+        .title {
+            margin-bottom: 12px;
+        }
+    }
+    .footer-data {
+        grid-column: 4/6;
+    }
+}
+
+#sub-footer {
+    padding-bottom: 1.2em;
+}

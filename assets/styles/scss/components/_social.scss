@@ -1,0 +1,41 @@
+#social {
+    span {
+        margin-right: 12px;
+        margin-top: 12px;
+    }
+    .facebook {
+        @extend %fa-icon;
+        @extend .fab;
+        &:before {
+            content: fa-content($fa-var-facebook);
+        }
+    }
+    .twitter {
+        @extend %fa-icon;
+        @extend .fab;
+        &:before {
+            content: fa-content($fa-var-twitter);
+        }
+    }
+    .linkedin {
+        @extend %fa-icon;
+        @extend .fab;
+        &:before {
+            content: fa-content($fa-var-linkedin);
+        }
+    }
+    .instagram {
+        @extend %fa-icon;
+        @extend .fab;
+        &:before {
+            content: fa-content($fa-var-instagram);
+        }
+    }
+    .telegram {
+        @extend %fa-icon;
+        @extend .fab;
+        &:before {
+            content: fa-content($fa-var-telegram);
+        }
+    }
+}
