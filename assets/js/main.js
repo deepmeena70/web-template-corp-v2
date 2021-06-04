@@ -1,3 +1,9 @@
+const body = document.body,
+    html = document.documentElement;
+
+const height = Math.max(body.scrollHeight, body.offsetHeight,
+    html.clientHeight, html.scrollHeight, html.offsetHeight);
+
 // dropdowns
 const menuItem = document.getElementsByClassName("menu-item");
 const list = document.getElementsByClassName("list");
@@ -23,7 +29,7 @@ const dropdowns = () => {
 // parallax
 
 
-const parallax = (diff, positionY, parallaxImg) => {
+const parallax = (diff, positionY, parallaxImg, min, max) => {
     let lastScroll = 0;
     document.addEventListener("scroll", e => {
         let scroll = window.pageYOffset || document.documentElement.scrollTop;
@@ -31,25 +37,31 @@ const parallax = (diff, positionY, parallaxImg) => {
         if (scroll > lastScroll) {
             // downscroll code
             if (positionY <= 100) {
-                parallaxImg[0].style.backgroundPosition = "center " + positionY + "%";
-                positionY += diff;
+                if (scroll > min && scroll < max) {
+
+                    parallaxImg[0].style.backgroundPosition = "center " + positionY + "%";
+                    positionY += diff;
+                }
             }
         } else {
             // upscroll code
             if (positionY >= 0) {
-                parallaxImg[0].style.backgroundPosition = "center " + positionY + "%";
-                positionY -= diff;
+                if (scroll > min && scroll < max) {
+
+                    parallaxImg[0].style.backgroundPosition = "center " + positionY + "%";
+                    positionY -= diff;
+                }
             }
         }
         lastScroll = scroll <= 0 ? 0 : scroll; // For Mobile or negative scrolling
     });
 };
 
-const playParallax = (speed) => {
+const playParallax = (speed, min, max) => {
     const parallaxImg = document.getElementsByClassName("parallax");
     let positionY = 50;
     let diff = speed;
-    parallax(diff, positionY, parallaxImg);
+    parallax(diff, positionY, parallaxImg, min, max);
 };
 
 // progress
@@ -387,14 +399,16 @@ playSlide(mobSlides, 3000);
 playSlide(testimonialSlides, 3000);
 playToggle();
 dropdown_sm();
+if (innerWidth > 500)
+    playParallax(1, height * 0.3, height * 0.5);
+else
+    playParallax(0.7, height * 0.3, height * 0.5);
+
+// parallax
+playParallax(1);
+playParallax(1.5);
 
 // on scroll load
-
-const body = document.body,
-    html = document.documentElement;
-
-const height = Math.max(body.scrollHeight, body.offsetHeight,
-    html.clientHeight, html.scrollHeight, html.offsetHeight);
 
 let footerActive = false;
 let progressActive = false;
@@ -406,14 +420,7 @@ window.addEventListener('scroll', e => {
         if (innerWidth > 700)
             collapse(list, i);
     }
-    // parallax
-    if (innerWidth > 500) {
-        if (scrollY > height * 0.33 && scrollY < height * 0.41)
-            playParallax(10);
-    } else {
-        if (scrollY > height * 0.4 && scrollY < height * 0.41)
-            playParallax(1.5);
-    }
+
     // progress circle animation
     if (innerWidth < 500) {
         if (scrollY > height * 0.92) {
