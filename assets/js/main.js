@@ -390,9 +390,9 @@ const toggler = () => {
 
 
 //load 
+accordionActions();
 document.addEventListener("readystatechange", e => {
     dropdowns();
-    accordionActions();
     playSlide(mobSlides, 3000);
     playSlide(testimonialSlides, 3000);
     playToggle();
