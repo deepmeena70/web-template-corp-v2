@@ -6864,6 +6864,7 @@ footer .container .footer-data .numbers div {
 
 body {
   background-color: #ffffff;
+  display: none;
 }
 
 .caret-down:before {
@@ -7223,7 +7224,7 @@ button:hover {
 }
 
 #testimonial-container .quote {
-  margin: 24px 84px 0 84px;
+  margin: 24px 21em 0 21em;
 }
 
 #testimonial-container .name {

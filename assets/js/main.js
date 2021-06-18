@@ -26,44 +26,6 @@ const dropdowns = () => {
     }
 };
 
-// parallax
-
-
-const parallax = (diff, positionY, parallaxImg, min, max) => {
-    let lastScroll = 0;
-    document.addEventListener("scroll", e => {
-        let scroll = window.pageYOffset || document.documentElement.scrollTop;
-
-        if (scroll > lastScroll) {
-            // downscroll code
-            if (positionY <= 100) {
-                if (scroll > min && scroll < max) {
-
-                    parallaxImg[0].style.backgroundPosition = "center " + positionY + "%";
-                    positionY += diff;
-                }
-            }
-        } else {
-            // upscroll code
-            if (positionY >= 0) {
-                if (scroll > min && scroll < max) {
-
-                    parallaxImg[0].style.backgroundPosition = "center " + positionY + "%";
-                    positionY -= diff;
-                }
-            }
-        }
-        lastScroll = scroll <= 0 ? 0 : scroll; // For Mobile or negative scrolling
-    });
-};
-
-const playParallax = (speed, min, max) => {
-    const parallaxImg = document.getElementsByClassName("parallax");
-    let positionY = 50;
-    let diff = speed;
-    parallax(diff, positionY, parallaxImg, min, max);
-};
-
 // progress
 const circleHalfOne = document.getElementsByClassName("circle-half-one");
 const circleHalfTwo = document.getElementsByClassName("circle-half-two");
@@ -388,26 +350,44 @@ const toggler = () => {
     }
 };
 
+// load animations on scrolling
+const createIntersect = (target, fun) => {
+    let options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 1.0
+    };
 
-//load 
-accordionActions();
-document.addEventListener("readystatechange", e => {
+    const callback = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                fun();
+            }
+        });
+    };
+
+    let observer = new IntersectionObserver(callback, options);
+
+
+    observer.observe(document.querySelector(target));
+};
+
+
+//load on ready
+document.addEventListener("DOMContentLoaded", e => {
+    document.body.style.display = 'initial';
     dropdowns();
     playSlide(mobSlides, 3000);
     playSlide(testimonialSlides, 3000);
     playToggle();
     dropdown_sm();
-    if (innerWidth > 500)
-        playParallax(1, height * 0.3, height * 0.5);
-    else
-        playParallax(0.7, height * 0.3, height * 0.5);
+    accordionActions();
+    createIntersect("#our-skill", progress);
+    createIntersect(".footer-data", footerCount);
 });
 
 
 // on scroll load
-
-let footerActive = false;
-let progressActive = false;
 
 window.addEventListener('scroll', e => {
     // dropdowns
@@ -416,31 +396,6 @@ window.addEventListener('scroll', e => {
         if (innerWidth > 700)
             collapse(list, i);
     }
-
-    // progress circle animation
-    if (innerWidth < 500) {
-        if (scrollY > height * 0.92) {
-            if (footerActive == false)
-                footerCount();
-
-            footerActive = true;
-        }
-    } else {
-        if (scrollY > height * 0.65) {
-            if (footerActive == false)
-                footerCount();
-
-            footerActive = true;
-        }
-    }
-    if (scrollY > height * 0.4) {
-        if (progressActive == false) {
-            progress();
-        }
-        progressActive = true;
-    }
-    // footer count animation
-
 
     // toggler
     toggler();
