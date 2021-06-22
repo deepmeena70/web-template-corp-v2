@@ -210,6 +210,7 @@ const menuSmItemAct = (arr, show) => {
     }
 };
 const playToggle = () => {
+    toggleBtn.setAttribute("data", "assets/media/img/ham_menu.svg");
     toggleBtn.addEventListener("load", e => {
         let svgDoc = toggleBtn.contentDocument;
         let svgIcon = svgDoc.getElementById("toggle-menu");
@@ -379,12 +380,13 @@ document.addEventListener("DOMContentLoaded", e => {
     dropdowns();
     playSlide(mobSlides, 3000);
     playSlide(testimonialSlides, 3000);
-    playToggle();
     dropdown_sm();
     accordionActions();
     createIntersect("#our-skill", progress);
     createIntersect(".footer-data", footerCount);
 });
+
+playToggle();
 
 
 // on scroll load
